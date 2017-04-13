@@ -19,9 +19,8 @@ classNum = 1000
 skip = []
 #get testImage
 testPath = "testModel"
-testImg = []
-for f in os.listdir(testPath):
-    testImg.append(cv2.imread(testPath + "/" + f))
+withPath = lambda f: '{}/{}'.format(testPath,f)
+testImg = [cv2.imread(withPath(f)) for f in os.listdir(testPath) if os.path.isfile(withPath(f))]
 
 imgMean = np.array([104, 117, 124], np.float)
 x = tf.placeholder("float", [1, 227, 227, 3])
@@ -45,4 +44,4 @@ with tf.Session() as sess:
         font = cv2.FONT_HERSHEY_SIMPLEX
         cv2.putText(img, res, (int(img.shape[0]/3), int(img.shape[1]/3)), font, 1, (0, 255, 0), 2)
         cv2.imshow("demo", img)
-        cv2.waitKey(5000)
+        cv2.waitKey(0)
