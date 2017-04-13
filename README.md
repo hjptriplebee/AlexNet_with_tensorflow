@@ -3,7 +3,7 @@ an easy implement of AlexNet with tensorflow, which has a detailed explanation.
 
 <img src="https://raw.githubusercontent.com/hjptriplebee/AlexNet_with_tensorflow/master/testModel/005525.jpg" width = "200" height = "150" alt="alexnet" /><img src="https://raw.githubusercontent.com/hjptriplebee/AlexNet_with_tensorflow/master/testModel/002689.jpg" width = "200" height = "150" alt="alexnet" /><img src="https://raw.githubusercontent.com/hjptriplebee/AlexNet_with_tensorflow/master/testModel/000018.jpg" width = "200" height = "150" alt="alexnet" />
 
-<img src="https://raw.githubusercontent.com/hjptriplebee/AlexNet_with_tensorflow/master/testModel/demo1.png" width = "200" height = "150" alt="tensorflow" /><img src="https://raw.githubusercontent.com/hjptriplebee/AlexNet_with_tensorflow/master/testModel/demo2.png" width = "200" height = "150" alt="tensorflow" /><img src="https://raw.githubusercontent.com/hjptriplebee/AlexNet_with_tensorflow/master/testModel/demo3.png" width = "200" height = "150" alt="tensorflow" />
+<img src="https://raw.githubusercontent.com/hjptriplebee/AlexNet_with_tensorflow/master/demo1.png" width = "200" height = "150" alt="tensorflow" /><img src="https://raw.githubusercontent.com/hjptriplebee/AlexNet_with_tensorflow/master/demo2.png" width = "200" height = "150" alt="tensorflow" /><img src="https://raw.githubusercontent.com/hjptriplebee/AlexNet_with_tensorflow/master/demo3.png" width = "200" height = "150" alt="tensorflow" />
 
 The code is an implement of AlexNet with tensorflow. The detailed explanation can be found [here](http://blog.csdn.net/accepthjp/article/details/69999309)
 
