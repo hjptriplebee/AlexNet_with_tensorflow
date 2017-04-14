@@ -15,7 +15,9 @@ Before running the code, you should confirm that you have :
 
 Then, you should download the model file "bvlc_alexnet.npy" which can be found [here](http://www.cs.toronto.edu/~guerzhoy/tf_alexnet/).
 
-Finally, run the test file with "python3 testModel.py", you will see some images with the predicted label.
+Finally, run the test file with "python3 testModel.py folder testModel", you will see some images with the predicted label (press any key to move on to the next image).
+
+The command also supports url. For eg. "python3 testModel.py url http://www.cats.org.uk/uploads/images/featurebox_sidebar_kids/Cat-Behaviour.jpg"
 
 You can also use tensorboard to monitor the process. Remeber to see [detailed explanation](http://blog.csdn.net/accepthjp/article/details/69999309).
 
