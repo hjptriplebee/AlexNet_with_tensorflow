@@ -8,15 +8,14 @@
    github: https://github.com/hjptriplebee
 '''''''''''''''''''''''''''''''''''''''''''''''''''''
 import os
+import urllib.request
+import argparse
+import sys
 import alexnet
 import cv2
 import tensorflow as tf
 import numpy as np
 import caffe_classes
-import urllib.request
-import argparse
-import sys
-
 
 parser = argparse.ArgumentParser(description='Classify some images.')
 parser.add_argument('mode', choices=['folder', 'url'], default='folder')
@@ -29,10 +28,11 @@ if args.mode == 'folder':
     testImg = dict((f,cv2.imread(withPath(f))) for f in os.listdir(args.path) if os.path.isfile(withPath(f)))
 elif args.mode == 'url':
     def url2img(url):
+        '''url to image'''
         resp = urllib.request.urlopen(url)
         image = np.asarray(bytearray(resp.read()), dtype="uint8")
         image = cv2.imdecode(image, cv2.IMREAD_COLOR)
-        return image    
+        return image
     testImg = {args.path:url2img(args.path)}
 
 if testImg.values():
@@ -57,7 +57,7 @@ if testImg.values():
             resized = cv2.resize(img.astype(np.float), (227, 227)) - imgMean
             maxx = np.argmax(sess.run(softmax, feed_dict = {x: resized.reshape((1, 227, 227, 3))}))
             res = caffe_classes.class_names[maxx]
-            #print(res)
+
             font = cv2.FONT_HERSHEY_SIMPLEX
             cv2.putText(img, res, (int(img.shape[0]/3), int(img.shape[1]/3)), font, 1, (0, 255, 0), 2)
             print("{}: {}\n----".format(key,res))
