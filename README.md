@@ -13,7 +13,7 @@ Before running the code, you should confirm that you have :
 - tensorflow 1.0
 - opencv
 
-Then, you should download the model file "bvlc_alexnet.npy" which can be found [here](http://www.cs.toronto.edu/~guerzhoy/tf_alexnet/).
+Then, you should download the model file "bvlc_alexnet.npy" which can be found [here](http://www.cs.toronto.edu/~guerzhoy/tf_alexnet/)or [here](http://pan.baidu.com/s/1c1ULewC)(for users who can't download from the first link).
 
 Finally, run the test file with "**python3 testModel.py folder testModel**", you will see some images with the predicted label (press any key to move on to the next image).
 
