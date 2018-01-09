@@ -1,6 +1,7 @@
 # coding: UTF-8
 '''''''''''''''''''''''''''''''''''''''''''''''''''''
    file name: alexnet.py
+
    create time: 2017年03月29日 星期三 17时13分01秒
    author: Jipeng Huang
    e-mail: huangjipengnju@gmail.com
@@ -38,7 +39,7 @@ def fcLayer(x, inputD, outputD, reluFlag, name):
 
 def convLayer(x, kHeight, kWidth, strideX, strideY,
               featureNum, name, padding = "SAME", groups = 1):
-    """convlutional"""
+    """convolution"""
     channel = int(x.get_shape()[-1])
     conv = lambda a, b: tf.nn.conv2d(a, b, strides = [1, strideY, strideX, 1], padding = padding)
     with tf.variable_scope(name) as scope:
@@ -68,14 +69,14 @@ class alexNet(object):
     def buildCNN(self):
         """build model"""
         conv1 = convLayer(self.X, 11, 11, 4, 4, 96, "conv1", "VALID")
-        pool1 = maxPoolLayer(conv1, 3, 3, 2, 2, "pool1", "VALID")
-        lrn1 = LRN(pool1, 2, 2e-05, 0.75, "norm1")
+        lrn1 = LRN(conv1, 2, 2e-05, 0.75, "norm1")
+        pool1 = maxPoolLayer(lrn1, 3, 3, 2, 2, "pool1", "VALID")
 
-        conv2 = convLayer(lrn1, 5, 5, 1, 1, 256, "conv2", groups = 2)
-        pool2 = maxPoolLayer(conv2, 3, 3, 2, 2, "pool2", "VALID")
-        lrn2 = LRN(pool2, 2, 2e-05, 0.75, "lrn2")
+        conv2 = convLayer(pool1, 5, 5, 1, 1, 256, "conv2", groups = 2)
+        lrn2 = LRN(conv2, 2, 2e-05, 0.75, "lrn2")
+        pool2 = maxPoolLayer(lrn2, 3, 3, 2, 2, "pool2", "VALID")
 
-        conv3 = convLayer(lrn2, 3, 3, 1, 1, 384, "conv3")
+        conv3 = convLayer(pool2, 3, 3, 1, 1, 384, "conv3")
 
         conv4 = convLayer(conv3, 3, 3, 1, 1, 384, "conv4", groups = 2)
 

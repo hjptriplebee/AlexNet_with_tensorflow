@@ -35,6 +35,7 @@ elif args.mode == 'url':
         return image
     testImg = {args.path:url2img(args.path)}
 
+# noinspection PyUnboundLocalVariable
 if testImg.values():
     #some params
     dropoutPro = 1
